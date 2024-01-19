@@ -47,7 +47,7 @@ class LoginView extends GetView<LoginController> {
                 child: ElevatedButton(
                   style: ButtonStyle(),
                   onPressed: () {
-                    Get.toNamed(Routes.HOME);
+                    Get.toNamed(Routes.BOTTOM_NAVIGATION);
                   },
                   child: Text('Login'),
                 ),
