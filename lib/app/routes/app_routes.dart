@@ -12,6 +12,7 @@ abstract class Routes {
   static const SETTINGS = _Paths.SETTINGS;
   static const REGISTER = _Paths.REGISTER;
   static const BMI_RESULT = _Paths.BMI_RESULT;
+  static const TERM_CONDITION = _Paths.TERM_CONDITION;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const SETTINGS = '/settings';
   static const REGISTER = '/register';
   static const BMI_RESULT = '/bmi-result';
+  static const TERM_CONDITION = '/term-condition';
 }

@@ -11,9 +11,15 @@ class RegisterController extends GetxController {
   final age = TextEditingController();
   final password = TextEditingController();
 
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   void onInit() {
     super.onInit();
+    name.text = 'Zainudin Zohari';
+    email.text = 'zzj2004@gmail.com';
+    age.text = '62';
+    password.text = '3april1962';
   }
 
   @override

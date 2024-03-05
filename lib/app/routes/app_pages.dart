@@ -18,6 +18,8 @@ import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/term_condition/bindings/term_condition_binding.dart';
+import '../modules/term_condition/views/term_condition_view.dart';
 
 part 'app_routes.dart';
 
@@ -79,6 +81,13 @@ class AppPages {
       name: _Paths.BMI_RESULT,
       page: () => const BmiResultView(),
       binding: BmiResultBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: 700),
+    ),
+    GetPage(
+      name: _Paths.TERM_CONDITION,
+      page: () => const TermConditionView(),
+      binding: TermConditionBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: 700),
     ),

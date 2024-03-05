@@ -47,6 +47,7 @@ class SettingsView extends GetView<SettingsController> {
                       ),
                       onTap: () {
                         print('test');
+                        Get.toNamed(Routes.TERM_CONDITION);
                       },
                     ),
                     ListTile(
