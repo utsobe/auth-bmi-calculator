@@ -6,6 +6,7 @@ class LoginController extends GetxController {
   final image = 'assets/images/logo.png';
 
   final email = TextEditingController();
+  final password = TextEditingController();
 
   final count = 0.obs;
   @override

@@ -10,6 +10,7 @@ abstract class Routes {
   static const CALCULATE = _Paths.CALCULATE;
   static const RESULT = _Paths.RESULT;
   static const SETTINGS = _Paths.SETTINGS;
+  static const REGISTER = _Paths.REGISTER;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const CALCULATE = '/calculate';
   static const RESULT = '/result';
   static const SETTINGS = '/settings';
+  static const REGISTER = '/register';
 }

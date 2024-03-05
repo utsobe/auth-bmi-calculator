@@ -1,0 +1,8 @@
+typeId = 1 // appcode
+typeId = 2 // login
+typeId = 3 // activegl
+typeId = 4 // attendancetreatment
+typeId = 5 // latesttreatment
+typeId = 6 // profile
+typeId = 7 // address
+typeId = 8 // notification-alert
