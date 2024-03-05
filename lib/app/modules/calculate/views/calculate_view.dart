@@ -1,9 +1,15 @@
+import 'package:bmi_calculator/app/core/widgets/custom_container/custom_container.dart';
+import 'package:bmi_calculator/app/core/widgets/custom_widgets/icon_content.dart';
+import 'package:bmi_calculator/app/data/constants/color_constant.dart';
+import 'package:bmi_calculator/app/data/constants/extensions/double_extension.dart';
+import 'package:bmi_calculator/app/data/constants/extensions/widget_extensions.dart';
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:line_icons/line_icon.dart';
-import 'package:line_icons/line_icons.dart';
-
+import '../../../core/widgets/common_buttons/common_icon_button.dart';
+import '../../../core/widgets/custom_widgets/round_icon_buttom.dart';
+import '../../../core/widgets/text_widgets/poppins_text.dart';
+import '../../../data/constants/size_constant.dart';
 import '../controllers/calculate_controller.dart';
 
 class CalculateView extends GetView<CalculateController> {
@@ -13,113 +19,206 @@ class CalculateView extends GetView<CalculateController> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        body: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'BMI Calculator',
-                style: TextStyle(
-                  fontSize: 26,
-                ),
-              ),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 120,
-                child: Row(
+        body: Obx(() {
+          return Padding(
+            padding: EdgeInsets.all(SizeConst.getSize(20)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(
-                                width: 2, color: Colors.grey.shade300)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            LineIcon(
-                              LineIcons.female,
-                              size: 40,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Female',
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                    PoppinsText(
+                      title: 'Calculator',
+                      size: SizeConst.getSize(26),
+                      weight: FontWeight.bold,
                     ),
-                    SizedBox(width: 15),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(
-                                width: 2, color: Colors.grey.shade300)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            LineIcon(
-                              LineIcons.male,
-                              size: 40,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Male',
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: SizeConst.getSize(15),
+                        vertical: SizeConst.getSize(5),
                       ),
-                    ),
+                      decoration: BoxDecoration(
+                          color: ColorConstant.primaryColor,
+                          borderRadius: BorderRadius.circular(50)),
+                      child: Icon(
+                        Icons.touch_app_outlined,
+                        color: Colors.white,
+                      ),
+                    ).onTap(() {
+                      print('calculating');
+                    }),
                   ],
                 ),
-              ),
-              SizedBox(height: 15),
-              Container(
-                height: 150,
-                width: Get.width,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(width: 2, color: Colors.grey.shade300)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    LineIcon(
-                      LineIcons.male,
-                      size: 40,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Male',
-                      style: TextStyle(
-                        fontSize: 16,
+                (SizeConst.getSize(20)).height,
+                Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: CustomContainer(
+                          cardChild: IconContent(
+                            icon: FontAwesomeIcons.mars,
+                            label: 'MALE',
+                          ),
+                          onPress: () {},
+                        ),
                       ),
-                    ),
-                  ],
+                      (SizeConst.getSize(20)).width,
+                      Expanded(
+                        child: CustomContainer(
+                          cardChild: IconContent(
+                            icon: FontAwesomeIcons.venus,
+                            label: 'FEMALE',
+                          ),
+                          onPress: () {},
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
+                (SizeConst.getSize(20)).height,
+                Expanded(
+                  child: CustomContainer(
+                    cardChild: Column(
+                      children: [
+                        PoppinsText(
+                          title: 'HEIGHT',
+                          size: SizeConst.getSize(18),
+                          color: Color(0xFF8D8E98),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            PoppinsText(
+                              title: controller.height.value.toString(),
+                              size: SizeConst.getSize(50),
+                              weight: FontWeight.w900,
+                            ),
+                            PoppinsText(
+                              title: 'cm',
+                              size: SizeConst.getSize(18),
+                              color: Color(0xFF8D8E98),
+                            )
+                          ],
+                        ),
+                        SliderTheme(
+                          data: SliderTheme.of(context).copyWith(
+                              activeTrackColor: Colors.blue.shade100,
+                              inactiveTrackColor: Colors.grey.shade300,
+                              thumbColor: ColorConstant.primaryColor,
+                              overlayColor: Colors.blue.shade200,
+                              thumbShape: RoundSliderThumbShape(
+                                  enabledThumbRadius: 15.0),
+                              overlayShape:
+                                  RoundSliderOverlayShape(overlayRadius: 30.0)),
+                          child: Slider(
+                            value: controller.height.value.toDouble(),
+                            min: 120.0,
+                            max: 220.0,
+                            onChanged: (double newValue) {
+                              controller.height.value = newValue.round();
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    onPress: () {},
+                  ),
+                ),
+                (SizeConst.getSize(20)).height,
+                Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: CustomContainer(
+                          onPress: () {},
+                          cardChild: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              PoppinsText(
+                                title: 'WEIGHT',
+                                size: SizeConst.getSize(18),
+                                color: Color(0xFF8D8E98),
+                              ),
+                              PoppinsText(
+                                title: controller.weight.value.toString(),
+                                size: SizeConst.getSize(50),
+                                weight: FontWeight.w900,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  RoundIconButton(
+                                    onPress: () {
+                                      controller.weight.value--;
+                                    },
+                                    icon: FontAwesomeIcons.minus,
+                                  ),
+                                  SizedBox(
+                                    width: 10.0,
+                                  ),
+                                  RoundIconButton(
+                                    onPress: (() {
+                                      controller.weight.value++;
+                                    }),
+                                    icon: FontAwesomeIcons.plus,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      (SizeConst.getSize(20)).width,
+                      Expanded(
+                        child: CustomContainer(
+                          onPress: () {},
+                          cardChild: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              PoppinsText(
+                                title: 'AGE',
+                                size: SizeConst.getSize(18),
+                                color: Color(0xFF8D8E98),
+                              ),
+                              PoppinsText(
+                                title: controller.age.value.toString(),
+                                size: SizeConst.getSize(50),
+                                weight: FontWeight.w900,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  RoundIconButton(
+                                    icon: FontAwesomeIcons.minus,
+                                    onPress: (() {
+                                      controller.age.value--;
+                                    }),
+                                  ),
+                                  SizedBox(
+                                    width: 10.0,
+                                  ),
+                                  RoundIconButton(
+                                    icon: FontAwesomeIcons.plus,
+                                    onPress: (() {
+                                      controller.age.value++;
+                                    }),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        }),
       ),
     );
   }

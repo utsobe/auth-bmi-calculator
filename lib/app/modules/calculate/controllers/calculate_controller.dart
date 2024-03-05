@@ -2,8 +2,10 @@ import 'package:get/get.dart';
 
 class CalculateController extends GetxController {
   //TODO: Implement CalculateController
+  final height = 180.obs;
+  final weight = 70.obs;
+  final age = 21.obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +20,4 @@ class CalculateController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

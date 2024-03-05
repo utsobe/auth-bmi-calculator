@@ -51,9 +51,9 @@ class RegisterView extends GetView<RegisterController> {
               ),
               (SizeConst.getSize(15)).height,
               CommonTextField(
-                prefixIconData: Icons.card_membership_outlined,
+                prefixIconData: Icons.face_outlined,
                 textEditingController: controller.email,
-                hintText: 'age'.tr,
+                hintText: 'Enter Your Age'.tr,
                 type: TextFieldType.PHONE,
                 textAlign: TextAlign.center,
               ),
@@ -70,7 +70,7 @@ class RegisterView extends GetView<RegisterController> {
                 title: 'Register'.tr,
                 callBack: () {
                   // controller.login();
-                  Get.toNamed(Routes.BOTTOM_NAVIGATION);
+                  Get.offNamed(Routes.LOGIN);
                 },
                 suffixIconData: Icons.arrow_forward,
               ),

@@ -6,9 +6,11 @@ class RegisterController extends GetxController {
 
   final image = 'assets/images/logo.png';
 
+  final name = TextEditingController();
   final email = TextEditingController();
+  final age = TextEditingController();
   final password = TextEditingController();
-  final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -23,6 +25,4 @@ class RegisterController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

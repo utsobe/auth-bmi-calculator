@@ -26,7 +26,7 @@ class BottomNavigationView extends GetView<BottomNavigationController> {
             ),
             NavigationDestination(
               icon: LineIcon(LineIcons.poll),
-              label: 'Result',
+              label: 'Results',
             ),
             NavigationDestination(
               icon: LineIcon(LineIcons.cog),

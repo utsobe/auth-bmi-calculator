@@ -54,7 +54,7 @@ class LoginView extends GetView<LoginController> {
                 title: 'Login'.tr,
                 callBack: () {
                   // controller.login();
-                  Get.toNamed(Routes.BOTTOM_NAVIGATION);
+                  Get.offNamed(Routes.BOTTOM_NAVIGATION);
                 },
                 suffixIconData: Icons.arrow_forward,
               ),
