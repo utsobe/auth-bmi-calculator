@@ -11,6 +11,7 @@ abstract class Routes {
   static const RESULT = _Paths.RESULT;
   static const SETTINGS = _Paths.SETTINGS;
   static const REGISTER = _Paths.REGISTER;
+  static const BMI_RESULT = _Paths.BMI_RESULT;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const RESULT = '/result';
   static const SETTINGS = '/settings';
   static const REGISTER = '/register';
+  static const BMI_RESULT = '/bmi-result';
 }

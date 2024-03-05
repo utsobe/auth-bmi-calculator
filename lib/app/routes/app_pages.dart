@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/bmi_result/bindings/bmi_result_binding.dart';
+import '../modules/bmi_result/views/bmi_result_view.dart';
 import '../modules/bottom_navigation/bindings/bottom_navigation_binding.dart';
 import '../modules/bottom_navigation/views/bottom_navigation_view.dart';
 import '../modules/calculate/bindings/calculate_binding.dart';
@@ -70,6 +72,15 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => const RegisterView(),
       binding: RegisterBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: 700),
+    ),
+    GetPage(
+      name: _Paths.BMI_RESULT,
+      page: () => const BmiResultView(),
+      binding: BmiResultBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: 700),
     ),
   ];
 }

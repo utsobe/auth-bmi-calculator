@@ -6,7 +6,6 @@ import 'package:bmi_calculator/app/data/constants/extensions/widget_extensions.d
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import '../../../core/widgets/common_buttons/common_icon_button.dart';
 import '../../../core/widgets/custom_widgets/round_icon_buttom.dart';
 import '../../../core/widgets/text_widgets/poppins_text.dart';
 import '../../../data/constants/size_constant.dart';
@@ -46,7 +45,7 @@ class CalculateView extends GetView<CalculateController> {
                         color: Colors.white,
                       ),
                     ).onTap(() {
-                      print('calculating');
+                      controller.calculateBmi();
                     }),
                   ],
                 ),
@@ -56,21 +55,31 @@ class CalculateView extends GetView<CalculateController> {
                     children: [
                       Expanded(
                         child: CustomContainer(
+                          color: controller.gender.value == 'male'
+                              ? Colors.blue.shade50
+                              : Colors.white,
                           cardChild: IconContent(
                             icon: FontAwesomeIcons.mars,
                             label: 'MALE',
                           ),
-                          onPress: () {},
+                          onPress: () {
+                            controller.gender.value = 'male';
+                          },
                         ),
                       ),
                       (SizeConst.getSize(20)).width,
                       Expanded(
                         child: CustomContainer(
+                          color: controller.gender.value == 'female'
+                              ? Colors.blue.shade50
+                              : Colors.white,
                           cardChild: IconContent(
                             icon: FontAwesomeIcons.venus,
                             label: 'FEMALE',
                           ),
-                          onPress: () {},
+                          onPress: () {
+                            controller.gender.value = 'female';
+                          },
                         ),
                       ),
                     ],
